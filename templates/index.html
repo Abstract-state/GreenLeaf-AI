@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant World</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <h2>Plant World - Disease Detection</h2>
+</header>
+
+<div class="parallax"></div>
+
+<div class="section static">
+    <h1>Welcome to the Plant World</h1>
+    <p>Discover the beauty and diversity of plant life.</p>
+</div>
+
+<div class="parallax parallax2">
+
+    <div class="section2 ">
+        <h1 class="static2">Plant Disease Detection</h1>
+        {% if image_loc %}
+            <div class="result">
+                <img src="{{ url_for('static', filename=image_loc) }}" alt="Uploaded image" width="300">
+                <h2 class="static2">Prediction: {{ prediction }}</h2>
+                <button onclick="window.history.back();">Go Back</button>
+            </div>
+        {% else %}
+            <form action="/" method="post" enctype="multipart/form-data" class="upload-form">
+                <input type="file" name="image" required="required">
+                <button type="submit">Predict</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <p>Plant World © 2024</p>
+    <p>Asmith 21BBS0066</p>
+    <P>Saksham 21BBS0080</P>
+</div>
+
+<script src="static/script.js"></script>
+</body>
+</html>
