@@ -35,7 +35,6 @@ class ResNet9(nn.Module):
     def forward(self, xb):
         out = self.conv1(xb)
         out = self.conv2(out)
-
         out = self.res1(out) + out
         out = self.conv3(out)
         out = self.conv4(out)
